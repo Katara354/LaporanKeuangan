@@ -1,0 +1,148 @@
+:root {
+    --orange: #F68b1f;
+    --gray: #f0f0f0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #fff;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+}
+
+h1,
+h2 {
+    color: var(--orange);
+}
+
+form,
+.filter,
+.laporan {
+    margin-bottom: 2rem;
+    background: var(--gray);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 0.75rem;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.3rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: var(--orange);
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #d97617;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        margin-bottom: 1rem;
+    }
+
+    td::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 0.5rem;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    td:nth-of-type(1)::before {
+        content: "Tanggal";
+    }
+
+    td:nth-of-type(2)::before {
+        content: "Lokasi";
+    }
+
+    td:nth-of-type(3)::before {
+        content: "Tipe";
+    }
+
+    td:nth-of-type(4)::before {
+        content: "Kategori";
+    }
+
+    td:nth-of-type(5)::before {
+        content: "Nominal";
+    }
+}
+
+/* Popup sukses */
+.popup {
+    visibility: hidden;
+    background-color: var(--orange);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.popup.show {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Keuangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Laporan Keuangan</h1>
+
+        <form id="laporanForm">
+            <h2>Tambah Laporan</h2>
+            <label>Tanggal: <input type="date" name="tanggal" required></label>
+            <label>Lokasi: <select name="lokasi" required></select></label>
+            <label>Tipe:
+                <select name="tipe" id="tipeSelect" required>
+                    <option value="pemasukan">Pemasukan</option>
+                    <option value="pengeluaran">Pengeluaran</option>
+                </select>
+            </label>
+            <label>Kategori: <select name="kategori" required></select></label>
+            <label>Nominal: <input type="number" name="nominal" required></label>
+            <button type="submit">Simpan</button>
+        </form>
+
+        <div class="filter">
+            <h2>Filter Laporan</h2>
+            <label>Lokasi: <select id="filterLokasi">
+                    <option value="">Semua</option>
+                </select></label>
+            <label>Tipe:
+                <select id="filterTipe">
+                    <option value="">Semua</option>
+                    <option value="pemasukan">Pemasukan</option>
+                    <option value="pengeluaran">Pengeluaran</option>
+                </select>
+            </label>
+            <label>Tanggal Awal: <input type="date" id="filterAwal"></label>
+            <label>Tanggal Akhir: <input type="date" id="filterAkhir"></label>
+            <button type="button" onclick="tampilkanLaporan()">Terapkan Filter</button>
+        </div>
+
+        <div class="laporan">
+            <h2>Data Laporan</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Lokasi</th>
+                        <th>Tipe</th>
+                        <th>Kategori</th>
+                        <th>Nominal</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelLaporan"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="popup" id="popupSuccess">Data berhasil disimpan!</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
