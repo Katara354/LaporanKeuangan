@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbyIJhgg2vbdH2R3FSX2jlMHIGCh03Vnv5xuf4zWroDdF7cXPfrMy8ZSRIfrc27rhlpp/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyaypLkWVzB3Ro-Vg-bD62fU2O9PsbIOHD74IevIK9uRcxCIIvVOJu9sRzrCB8vwmB2/exec";
 
 let referensi = {}, semuaLaporan = [];
 
@@ -36,7 +36,8 @@ document.getElementById("laporanForm").addEventListener("submit", async e => {
     lokasi: form.lokasi.value,
     tipe: form.tipe.value,
     kategori: form.kategori.value,
-    nominal: form.nominal.value
+    nominal: form.nominal.value,
+    keterangan: form.keterangan.value
   };
 
   const res = await fetch(API_URL, {
@@ -91,6 +92,7 @@ function tampilkanLaporan() {
       <td>${row.tipe}</td>
       <td>${row.kategori}</td>
       <td>${Number(row.nominal).toLocaleString("id-ID")}</td>
+      <td>${row.keterangan || "-"}</td>
     </tr>`;
 
     const nominal = Number(row.nominal);
