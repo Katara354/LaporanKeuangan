@@ -76,11 +76,14 @@ function tampilkanLaporan() {
     return true;
   });
 
+  let totalPemasukan = 0;
+  let totalPengeluaran = 0;
+
   hasil.forEach(row => {
     const tanggal = new Date(row.tanggal);
     const tglFormat = new Intl.DateTimeFormat('id-ID', {
       day: '2-digit', month: '2-digit', year: 'numeric'
-    }).format(tanggal); // 26-05-2025
+    }).format(tanggal);
 
     tbody.innerHTML += `<tr>
       <td>${tglFormat}</td>
@@ -89,7 +92,16 @@ function tampilkanLaporan() {
       <td>${row.kategori}</td>
       <td>${Number(row.nominal).toLocaleString("id-ID")}</td>
     </tr>`;
+
+    const nominal = Number(row.nominal);
+    if (row.tipe === "pemasukan") totalPemasukan += nominal;
+    else if (row.tipe === "pengeluaran") totalPengeluaran += nominal;
   });
+
+  // Update summary
+  document.getElementById("totalPemasukan").textContent = totalPemasukan.toLocaleString("id-ID");
+  document.getElementById("totalPengeluaran").textContent = totalPengeluaran.toLocaleString("id-ID");
+  document.getElementById("saldoBersih").textContent = (totalPemasukan - totalPengeluaran).toLocaleString("id-ID");
 }
 
 
