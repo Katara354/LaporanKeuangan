@@ -146,3 +146,19 @@ td {
     visibility: visible;
     opacity: 1;
 }
+
+.summary {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: var(--orange);
+}
+
+.summary div {
+    background: #fff3e0;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    min-width: 120px;
+    text-align: center;
+}
