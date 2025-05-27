@@ -149,7 +149,10 @@ td {
 
 .summary {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    /* biar bisa turun ke bawah jika sempit */
+    justify-content: center;
+    gap: 0.5rem;
     margin-bottom: 1rem;
     font-weight: bold;
     color: var(--orange);
@@ -157,8 +160,11 @@ td {
 
 .summary div {
     background: #fff3e0;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     border-radius: 8px;
-    min-width: 120px;
+    min-width: 140px;
     text-align: center;
+    flex: 1 1 120px;
+    /* fleksibel dan bisa turun jika perlu */
+    box-sizing: border-box;
 }
